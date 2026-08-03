@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 bg-gray-50;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 900;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Custom scrollbar for a premium look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+@layer utilities {
+  .frosted-glass {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .dark .frosted-glass {
+    background: rgba(17, 24, 39, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-panel {
+    @apply frosted-glass rounded-3xl;
+  }
+  
+  .glass-card {
+    @apply frosted-glass rounded-2xl hover:border-brand-400/60 transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .glass-button {
+    @apply relative overflow-hidden backdrop-blur-md bg-white/20 dark:bg-white/10 border border-white/40 dark:border-white/20 hover:bg-white/30 dark:hover:bg-white/20 active:scale-95 transition-all duration-200;
+  }
+  
+  .glass-button-primary {
+    @apply relative overflow-hidden backdrop-blur-md bg-brand-600/75 dark:bg-brand-500/75 text-white border border-white/30 hover:bg-brand-500/85 active:scale-95 transition-all duration-200;
+  }
+
+  .glass-table {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(40px) saturate(220%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(220%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    @apply rounded-[24px] overflow-hidden shadow-2xl;
+  }
+
+  .dark .glass-table {
+    background: rgba(10, 15, 26, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .glass-table th {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-b: 1px solid rgba(255, 255, 255, 0.25) !important;
+    @apply font-black text-gray-800 dark:text-gray-200 uppercase tracking-widest text-[11px] py-4 px-6;
+  }
+
+  .dark .glass-table th {
+    background: rgba(0, 0, 0, 0.25) !important;
+    border-b: 1px solid rgba(255, 255, 255, 0.08) !important;
+    @apply text-white;
+  }
+
+  .glass-table tr {
+    background: transparent !important;
+    @apply transition-all duration-300 border-b border-gray-200/50 dark:border-white/5;
+  }
+
+  .glass-table tr:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .dark .glass-table tr:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  .bg-grid {
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='98' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.18'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23000000' stroke-width='1' stroke-opacity='0.18'/%3E%3C/svg%3E");
+    background-size: 56px 98px;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+    mask-image: radial-gradient(ellipse at center, black 20%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 80%);
+  }
+  
+  .dark .bg-grid {
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='98' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.07'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.07'/%3E%3C/svg%3E");
+    background-size: 56px 98px;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+  }
+}
+
+/* Custom micro-animations for floating tables, flash glow, and cards */
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.3deg);
+  }
+}
+
+@keyframes flashSweep {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-25deg);
+  }
+}
+
+@keyframes neonGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.25), inset 0 0 15px rgba(6, 182, 212, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(168, 85, 247, 0.4), inset 0 0 25px rgba(168, 85, 247, 0.2);
+  }
+}
+
+.animate-modal-in {
+  animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-flash-sweep {
+  animation: flashSweep 4s ease-in-out infinite;
+}
+
+.animate-neon-glow {
+  animation: neonGlow 4s ease-in-out infinite;
+}
