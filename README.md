@@ -193,7 +193,7 @@ Create a `.env` file in the root directory:
 
 **Aryan Sharma** (*aryanshrm*)
 - GitHub: [@aryanshrm](https://github.com/aryanshrm)
-- Portfolio: [https://aryansharma.dev](https://aryansharma.dev)
+- LinkedIn: [https://www.linkedin.com/in/aryanshrm](https://www.linkedin.com/in/aryanshrm)
 
 ---
 
